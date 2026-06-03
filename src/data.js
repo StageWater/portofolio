@@ -1,10 +1,10 @@
 export const siteData = {
   name: 'Syahrul Yovi Distyanto',
-  role: 'Mahasiswa S1 Teknologi Informasi Semester 6',
-  study: 'Universitas Duta Bangsa Surakarta (Konsentrasi Sistem Cerdas)',
+  role: 'Mahasiswa S1 Teknik Informatika Semester 6',
+  study: 'Universitas Duta Bangsa Surakarta ',
   description:
     'Spesialisasi di Frontend/Backend Development, UI/UX Design, dan IoT Prototyping.',
-  email: 'syahrulyovi@dutabangsa.ac.id',
+  email: 'syahrulyovidistyanto@gmail.com',
   links: {
     github: 'https://github.com/StageWater',
     linkedin: 'https://www.linkedin.com/in/syahrul-yd-85586b413',
