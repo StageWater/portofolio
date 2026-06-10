@@ -56,6 +56,12 @@ export const projects = [
     stack: 'Python Machine Learning',
     accent: 'Data',
   },
+  {
+    title: 'Aplikasi Manajemen Penjualan Pulsa & Tagihan Digital',
+    role: 'Software Developer',
+    stack: 'Python Flask, MySQL, Bootstrap',
+    accent: 'Fullstack',
+  },
 ]
 
 export const experiences = [
