@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
-import { FiMail, FiSend } from 'react-icons/fi'
-import { siteData, skillCategories, projects, experiences } from './data'
+import { FiMail } from 'react-icons/fi'
+import { siteData, skillCategories, experiences } from './data'
+import Project from './Project' // <-- INI YANG MEMBUAT GAMBARMU AKAN MUNCUL
 
 const SectionTitle = ({ number, title }) => (
   <div className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.24em] text-slate-400">
@@ -120,59 +121,24 @@ function App() {
                   Kirim pesan singkat atau hubungi via GitHub, LinkedIn, Instagram, atau email saya.
                 </p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <a
-                    href={siteData.links.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-3xl border border-indigo-500/30 bg-indigo-500/10 px-5 py-3 text-sm text-indigo-200 transition hover:bg-indigo-500/20"
-                  >
-                    <FaGithub className="h-4 w-4" />
-                    GitHub
+                  <a href={siteData.links.github} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-3xl border border-indigo-500/30 bg-indigo-500/10 px-5 py-3 text-sm text-indigo-200 transition hover:bg-indigo-500/20">
+                    <FaGithub className="h-4 w-4" /> GitHub
                   </a>
-                  <a
-                    href={siteData.links.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-3xl border border-emerald-400/20 bg-emerald-400/10 px-5 py-3 text-sm text-emerald-200 transition hover:bg-emerald-400/20"
-                  >
-                    <FaLinkedin className="h-4 w-4" />
-                    LinkedIn
+                  <a href={siteData.links.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-3xl border border-emerald-400/20 bg-emerald-400/10 px-5 py-3 text-sm text-emerald-200 transition hover:bg-emerald-400/20">
+                    <FaLinkedin className="h-4 w-4" /> LinkedIn
                   </a>
-                  <a
-                    href={siteData.links.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-3xl border border-pink-500/20 bg-pink-500/10 px-5 py-3 text-sm text-pink-200 transition hover:bg-pink-500/20"
-                  >
-                    <FaInstagram className="h-4 w-4" />
-                    Instagram
+                  <a href={siteData.links.instagram} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-3xl border border-pink-500/20 bg-pink-500/10 px-5 py-3 text-sm text-pink-200 transition hover:bg-pink-500/20">
+                    <FaInstagram className="h-4 w-4" /> Instagram
                   </a>
                 </div>
               </div>
             </div>
           </section>
 
-          <section ref={projectsRef} className="space-y-8 reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
-            <SectionTitle number="3" title="Proyek Pilihan" />
-            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-              {projects.map((project) => (
-                <article
-                  key={project.title}
-                  className="group rounded-[28px] border border-white/10 bg-slate-950/10 p-6 shadow-glass transition duration-500 hover:-translate-y-1 hover:border-indigo-500/40 hover:bg-surface2/90"
-                >
-                  <div className="mb-4 flex items-center justify-between">
-                    <span className="rounded-full bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.24em] text-slate-300">
-                      {project.accent}
-                    </span>
-                    <span className="text-xs text-slate-500 transition group-hover:text-slate-300">Project</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-slate-100">{project.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{project.role}</p>
-                  <p className="mt-5 text-sm text-slate-400">Stack: {project.stack}</p>
-                </article>
-              ))}
-            </div>
-          </section>
+          {/* AREA PROYEK YANG SUDAH DIGANTI DENGAN KOMPONEN PROJECT BERGAMBAR KAMU */}
+          <div ref={projectsRef} className="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+            <Project />
+          </div>
 
           <section className="rounded-[32px] border border-white/10 bg-surface2/80 p-8 shadow-glass backdrop-blur-xl reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
             <SectionTitle number="4" title="Form Kontak" />
@@ -184,47 +150,16 @@ function App() {
                 </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4 rounded-3xl border border-white/10 bg-slate-950/10 p-6">
-                <label className="block text-sm text-slate-300">
-                  Nama
-                  <input
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
-                    placeholder="Masukkan nama Anda"
-                  />
+                <label className="block text-sm text-slate-300">Nama
+                  <input name="name" value={form.name} onChange={handleChange} required className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" placeholder="Masukkan nama Anda" />
                 </label>
-                <label className="block text-sm text-slate-300">
-                  Email
-                  <input
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
-                    placeholder="email@domain.com"
-                  />
+                <label className="block text-sm text-slate-300">Email
+                  <input name="email" type="email" value={form.email} onChange={handleChange} required className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" placeholder="email@domain.com" />
                 </label>
-                <label className="block text-sm text-slate-300">
-                  Pesan
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    rows="5"
-                    className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
-                    placeholder="Apa yang ingin Anda bicarakan?"
-                  />
+                <label className="block text-sm text-slate-300">Pesan
+                  <textarea name="message" value={form.message} onChange={handleChange} required rows="5" className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" placeholder="Apa yang ingin Anda bicarakan?" />
                 </label>
-                <button
-                  type="submit"
-                  className="w-full rounded-3xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500"
-                >
-                  Kirim Pesan
-                </button>
+                <button type="submit" className="w-full rounded-3xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500">Kirim Pesan</button>
               </form>
             </div>
           </section>
